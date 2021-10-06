@@ -1,0 +1,61 @@
+﻿@model WebApplication8.Models.UserTasks
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/_LayoutNavigation.cshtml";
+}
+<link rel="stylesheet" href="~/css/Tasks/details.css" />
+<h1>Szczegóły zadania</h1>
+
+<div>
+    <hr />
+    <dl class="row col-sm-6">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedAt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreatedAt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EndedAt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EndedAt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.WantedUser)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.WantedUser)
+        </dd>
+    </dl>
+</div>
+<div>
+    <form>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Edytuj</a> |
+        <a asp-action="Index">Wróć do listy</a>
+    </form>
+</div>

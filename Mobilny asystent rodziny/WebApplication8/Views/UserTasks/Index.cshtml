@@ -1,0 +1,82 @@
+﻿@model IEnumerable<WebApplication8.Models.UserTasks>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/_LayoutNavigation.cshtml";
+}
+<link rel="stylesheet" href="~/css/Tasks/index.css" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova&display=swap" rel="stylesheet">
+<button class="btn btn-danger" onclick="location.href='@Url.Action("Create", "UserTasks")';return false;">
+    Dodaj nowe zadanie
+</button>
+<div class="tableMain">
+    <table class="table-responsive-lg col-lg-12 h100 task-index">
+        <thead>
+            <tr>
+                <th class="hideItOnMobile">
+                    @Html.DisplayNameFor(model => model.CreatedAt)
+                </th>
+                <th class="hideItOnMobile">
+                    @Html.DisplayNameFor(model => model.EndedAt)
+                </th>
+                <th class="hideItOnMobile">
+                    @Html.DisplayNameFor(model => model.CreatedBy)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WantedUser)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="col-4">
+                    <td class="hideItOnMobile">
+                        @Html.DisplayFor(modelItem => item.CreatedAt)
+                    </td>
+                    <td class="hideItOnMobile">
+                        @Html.DisplayFor(modelItem => item.EndedAt)
+                    </td>
+                    <td class="hideItOnMobile">
+                        @Html.DisplayFor(modelItem => item.CreatedBy)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        <div class="col-5">@Html.DisplayFor(modelItem => item.Status)</div>
+                    </td>
+                    <td class="col-2 hideItOnMobile">
+                        @Html.DisplayFor(modelItem => item.WantedUser)
+                    </td>
+                    <td>
+                        <div class="col-md-5 d-flex align-items-center onMobileGetAsColumn">
+                            <a class="bigger" runat="server" asp-action="Edit" asp-route-id="@item.Id" id="editTask">&#9997;</a><div class="hideItOnMobile">|</div>
+                            <a class="bigger" asp-action="Details" asp-route-id="@item.Id">&#8505;</a> <div class="hideItOnMobile">|</div>
+                            <a class="bigger" asp-action="Delete" asp-route-id="@item.Id">&#10008;</a> <div class="hideItOnMobile">|</div>
+                            <a class="bigger" asp-action="InProgress" asp-route-id="@item.Id">⏱</a> <div class="hideItOnMobile">|</div>
+                            <a class="bigger" asp-action="Done" asp-route-id="@item.Id">&#x2714;</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script src="~/js/Tasks/index.js" asp-append-version="true"></script>

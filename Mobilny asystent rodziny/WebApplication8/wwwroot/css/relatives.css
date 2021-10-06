@@ -1,0 +1,64 @@
+﻿.assignGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.assignToExistingGroup {
+    border: solid white 1px;
+}
+
+.right-corner {
+    float: right;
+}
+
+.right-corner label {
+    color: white;
+}
+
+.direction-row {
+    flex-direction: row;
+}
+
+label {
+    color: white;
+}
+
+.lower {
+    margin-top: 50px;
+}
+
+h3 {
+    color: white;
+}
+
+ul li {
+    text-decoration: none;
+    color: white;
+}
+
+.make-it-lower {
+    margin-top: 50px;
+}
+
+input:disabled {
+    background-color: white !important;
+}
+
+#makeMeWhite {
+    color: white;
+}
+
+#code {
+    -webkit-text-fill-color: rgba(0,0,0,1);
+}
+
+@media screen and (max-width: 640px) {
+    h3 {
+        font-size: 15px;
+    }
+
+    .groupCode {
+        width: 205px;
+        font-size: 15px;
+    }
+}

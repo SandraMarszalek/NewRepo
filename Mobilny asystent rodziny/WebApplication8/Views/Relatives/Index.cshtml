@@ -1,0 +1,46 @@
+﻿@model WebApplication8.Models.Relatives
+@{
+    Layout = "~/Pages/_LayoutNavigation.cshtml";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet" href="~/css/relatives.css" />
+<div class="container assignGroup">
+    <div class="row">
+        <div class="col-xl-12">
+            <label for="#code">Przekaż ten kod innym, aby mogli dołączyć do Twojej grupy!</label>
+            <input type="text" class="form-control-lg col-sm-4 groupCode" disabled id="code" value="@ViewBag.code" />
+        </div>
+    </div>
+    <div class="row make-it-lower">
+        <div class="col-xl-6 assignToExistingGroup">
+            <h3>Wpisz kod istniejącej grupy, aby do niej dołączyć</h3>
+            @using (Html.BeginForm("AssignUserToGroup", "Relatives", FormMethod.Post))
+            {
+                <input type="text" name="groupCode" id="groupCode" />
+                <button class="btn btn-outline-light" type="submit">Zapisz do grupy</button>
+            }
+        </div>
+        <div class="col-xl-6 assignToExistingGroup">
+            <h3>Członkowie Twojej grupy</h3>
+            <ul>
+                @foreach (var item in @ViewBag.usersInGroup)
+                {
+                    <li>@item</li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 lower">
+            <label for="#groupName">Nadaj nazwę grupie: </label>
+            @using (Html.BeginForm("NameGroup", "Relatives", FormMethod.Post))
+            {
+                <input type="text" name="groupName" id="groupName" value="@ViewBag.groupName"/>
+                <button class="btn btn-outline-light" type="submit">Zapisz</button>
+            }
+        </div>
+    </div>
+</div>

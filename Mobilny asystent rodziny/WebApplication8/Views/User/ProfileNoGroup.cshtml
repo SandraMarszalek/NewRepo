@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Profil";
+    Layout = "~/Pages/_LayoutNavigation.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/profile.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<nav class="navbar h-100">
+    <div class="h-50">
+    </div>
+</nav>
+<div class="container h-100 userProfileMain">
+    <section class="mainProfileInfo col-lg-12">
+        <div class="row tableUserInfo">
+            <div class="col-sm-2">Użytkownik: @ViewBag.User </div>
+            <div class="col-sm-2">Imię: @ViewBag.Name</div>
+            <div class="col-sm-4">E-mail: @ViewBag.Email</div>
+            <div class="col-sm-2">Grupa: @ViewBag.Group</div>
+            <div class="col-sm-2"><a id="changePersonalData" asp-page="/ProfileEdit">Zmień dane</a></div>
+        </div>
+    </section>
+    <section class="col-xl-12 main h-100">
+        <table class="table-responsive-lg col-lg-12 tasksTable">
+            <thead>
+                <tr>
+                    <th>Zadanie</th>
+                    <th>Opis</th>
+                    <th>Status</th>
+                    <th>Data utworzenia</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="col-2"></td>
+                    <td></td>
+                    <td class="col-sm-1">
+                    </td>
+                </tr>
+ 
+            </tbody>
+        </table>
+    </section>
+    <script src="~/js/profile.js" asp-append-version="true"></script>
+</div>

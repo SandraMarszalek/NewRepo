@@ -1,0 +1,28 @@
+﻿h1 {
+    color: white;
+}
+
+.create-task {
+    border: white solid 2px;
+    border-radius: 10px;
+    background-color: hsla(207, 58%, 93%, 0.9);
+    height: 350px;
+    color: black;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:after {
+    color: white;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 500px) {
+    .create-task {
+        min-width: 265px;
+        max-width: 300px;
+    }
+}

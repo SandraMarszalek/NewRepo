@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Mobilny Asystent Rodziny</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/navigationLayout.css" />
+    </environment>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Mobilny Asystent Rodziny</a>
+                <p id="mapTooltip" title="@ViewBag.loggedInUser">Witaj @ViewBag.loggedInUser</p>
+            </div>
+        </nav>
+    </header>
+    <nav class="navbar leftNavPanel h-100">
+        <div class="h-50 navMain">
+            <input type="checkbox" class="navMain-checkbox"/>
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul class="nav-item">
+                <li class="d-flex space-between-buttons">
+                    <button type="button" class="btn btn-outline-primary button_nav btn-lg col-lg-12" onclick="@("window.location.href='" + @Url.Action("Profile", "User") + "'");">Profil użytkownika</button>
+                </li>
+                <li class="space-between-buttons">
+                    <button type="button" class="btn btn-outline-danger button_nav btn-lg col-lg-12" onclick="@("window.location.href='" + @Url.Action("Tasks", "Groups") + "'");">Grupy</button>
+                </li>
+                <li class="space-between-buttons">
+                    <button type="button" class="btn btn-outline-primary button_nav btn-lg col-lg-12" onclick="@("window.location.href='" + @Url.Action("Index", "UserTasks") + "'");">Zadania</button>
+                </li>
+                <li class="space-between-buttons">
+                    <button type="button" class="btn btn-outline-danger button_nav btn-lg col-lg-12" onclick="@("window.location.href='" + @Url.Action("Index", "Relatives") + "'");">Twoi bliscy</button>
+                </li>
+                <li class="space-between-buttons">
+                    <button type="button" class="btn btn-outline-primary button_nav btn-lg col-lg-12" onclick="@("window.location.href='" + @Url.Action("Map", "Map") + "'");">Mapa</button>
+                </li>
+                <li class="space-between-buttons">
+                    <button type="button" class="btn btn-outline-danger button_nav btn-lg col-lg-12" onclick="@("window.location.href='" + @Url.Action("Logout", "Account") + "'");">Wyloguj się</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container col-9">
+        <main role="main" class="pb-3 col-lg-12 h-75">
+            @RenderBody()
+        </main>
+    </div>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/js/navigationMenu.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+

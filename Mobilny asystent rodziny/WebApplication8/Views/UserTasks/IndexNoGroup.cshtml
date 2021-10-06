@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/_LayoutNavigation.cshtml";
+}
+<link rel="stylesheet" href="~/css/Tasks/index.css" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova&display=swap" rel="stylesheet">
+<h4 id="makeMeWhite">Nie masz jeszcze grupy! Utwórz nową grupę lub dołącz do już istniejącej!</h4>
+<button class="btn btn-danger" disabled onclick="location.href='@Url.Action("Create", "UserTasks")';return false;">
+    Dodaj nowe zadanie
+</button>
+
+<table class="table-responsive-lg col-lg-12 h100 task-index">
+    <thead>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+<script src="~/js/Tasks/index.js" asp-append-version="true"></script>

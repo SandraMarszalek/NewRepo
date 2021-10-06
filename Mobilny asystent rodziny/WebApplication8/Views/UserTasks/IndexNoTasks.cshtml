@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/_LayoutNavigation.cshtml";
+}
+<link rel="stylesheet" href="~/css/Tasks/index.css" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova&display=swap" rel="stylesheet">
+<button class="btn btn-danger" onclick="location.href='@Url.Action("Create", "UserTasks")';return false;">
+    Dodaj nowe zadanie
+</button>
+
+<table class="table-responsive-lg col-lg-12 h100 task-index">
+    <thead>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+<script src="~/js/Tasks/index.js" asp-append-version="true"></script>

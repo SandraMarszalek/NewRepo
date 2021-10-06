@@ -1,0 +1,13 @@
+﻿.details {
+    background-color: hsla(207, 58%, 93%, 0.9);
+    border-radius: 10px;
+    border: white solid 2px;
+}
+
+body {
+    color: white;
+}
+
+a {
+    color: white;
+}

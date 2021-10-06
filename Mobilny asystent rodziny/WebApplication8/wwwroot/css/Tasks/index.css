@@ -1,0 +1,65 @@
+﻿body {
+    background-color: white;
+}
+
+.task-index {
+    border: white solid 2px;
+    font-family: 'Ibarra Real Nova', serif;
+    border-radius: 10px;
+}
+
+.tableMain {
+    align-items: center;
+    border: solid 3px white;
+    border-radius: 10px;
+    background-color: hsla(0, 0%, 100%, 0.9);
+}
+
+.add-new-task a{
+    text-decoration: none;
+}
+
+table td, th {
+    border: 1px solid #ddd;
+    padding: 1%;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #b3d1ff;
+}
+
+th {
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+    text-align: center;
+    background-color: darkblue;
+    color: white;
+}
+
+table{
+    border-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.bigger {
+    font-size: 25px;
+}
+
+#makeMeWhite {
+    color: white;
+}
+
+@media screen and (max-width: 960px) {
+    .hideItOnMobile {
+        display: none;
+    }
+
+    .onMobileGetAsColumn {
+        flex-direction: column;
+    }
+}

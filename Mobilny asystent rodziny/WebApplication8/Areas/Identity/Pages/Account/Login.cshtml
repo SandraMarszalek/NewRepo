@@ -1,0 +1,79 @@
+﻿@page
+@model LoginModel
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Domine:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="~/css/login.css" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<h1>@ViewData["Title"]</h1>
+<body>
+    <div class="container h-75 align-self-center d-flex justify-content-center login">
+        <div class="col-12 align-content-center border-form">
+            <div class="row">
+                <div class="col-7">
+                    <section>
+                        <form id="account" method="post">
+                            <h4>Zaloguj się.</h4>
+                            <hr />
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="Input.Email"></label>
+                                <input asp-for="Input.Email" class="form-control" />
+                                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Input.Password"></label>
+                                <input asp-for="Input.Password" class="form-control" />
+                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-danger btn-lg btn-block col-xl-12">Zaloguj mnie</button>
+                            </div>
+                            <div class="form-group links-without-decoration">
+                                <p>
+                                    <a id="forgot-password" asp-page="./ForgotPassword">Zapomniane hasło?</a>
+                                </p>
+                                <p>
+                                    <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Nie masz jeszcze konta?</a>
+                                </p>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+                <div class="col-5 col-md-offset-2">
+                    <section>
+                        <h4>Zaloguj się korzystając z innego serwisu.</h4>
+                        <hr />
+                        
+                        @{
+                            if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                            {
+
+                            }
+                            else
+                            {
+                                <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                                    <div>
+                                        <p>
+                                            @foreach (var provider in Model.ExternalLogins)
+                                            {
+                                                <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Zaloguj się korzystając z konta @provider.DisplayName">@provider.DisplayName</button>
+                                            }
+                                        </p>
+                                    </div>
+                                </form>
+                            }
+                        }
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

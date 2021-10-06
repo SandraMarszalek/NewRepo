@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="~/css/index.css" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<div class="container h-75 main-box-index">
+    <div class="row">
+        <div class="col-8 d-flex justify-content-center tututu">
+            <div class="smileyfamily col-sm-5"><img src="~/css/smileyfamily.png" alt="" /></div>
+            <div class="col-sm-6 MAR">
+                <p class="mobile-assistant" id="mobile">Mobilny </p>
+                <p class="mobile-assistant" id="assistant">Asystent </p>
+                <p class="mobile-assistant" id="family">Rodziny</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 buttons">
+        <button id="button_log_in" class="btn btn-primary btn-lg buttons-index col-6" onclick="viewLogInPage()">Zaloguj się</button>
+        <button id="button_sign_up" class="btn btn-danger btn-lg buttons-index col-6" onclick="viewRegisterPage()">Zarejestruj się</button>
+    </div>
+</div>
+<script src="~/js/index.js" asp-append-version="true"></script>

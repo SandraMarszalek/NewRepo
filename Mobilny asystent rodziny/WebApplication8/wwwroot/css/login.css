@@ -1,0 +1,72 @@
+﻿html {
+    height: 100%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+a {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.border-form {
+    border: white solid 2px;
+    border-radius: 10px;
+    background-color: hsla(207, 58%, 93%, 0.8);
+}
+
+form {
+    width: 100%;
+}
+
+.mainLogInContainer {
+    margin-top: 200px;
+    padding-top: 30px;
+    opacity: 0.9;
+    background-color: aliceblue;
+    border-radius: 50px;
+    width: 200px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+}
+
+.logMeIn {
+    margin: auto;
+    background-color: aliceblue;
+    opacity: .9;
+    flex-direction: column;
+}
+
+.logInCredentials {
+    margin-bottom: 25px;
+}
+
+.logInWindow {
+    display: inline-flex;
+}
+
+label {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.titleH2 {
+    font-family: 'Nanum Gothic', sans-serif;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.links-without-decoration a {
+    text-decoration: none;
+    
+    color: black;
+}
+
+    .links-without-decoration a:hover {
+        text-decoration: none;
+        font-family: 'Nanum Gothic', sans-serif;
+        color: lavenderblush;
+    }
+
+#external-login-description, #external-login-title, #makeMeWhite {
+    color: white;
+}

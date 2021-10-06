@@ -1,0 +1,70 @@
+﻿@model WebApplication8.Models.UserTasks
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/_LayoutNavigation.cshtml";
+}
+<link rel="stylesheet" href="~/css/Tasks/edit.css" />
+
+<h1>Edytuj zadanie</h1>
+
+<hr />
+<div class="row">
+    <div class="col-lg-12 mainEdit">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="CreatedAt" class="control-label" hidden></label>
+                <input asp-for="CreatedAt" class="form-control" hidden />
+                <span asp-validation-for="CreatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndedAt" class="control-label" hidden></label>
+                <input asp-for="EndedAt" class="form-control" hidden />
+                <span asp-validation-for="EndedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedBy" class="control-label"></label>
+                <input asp-for="CreatedBy" class="form-control" readonly />
+                <span asp-validation-for="CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" readonly />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskGroup" class="control-label"></label>
+                <select id="selectGroup" asp-for="TaskGroup" asp-items="@(new SelectList(ViewBag.message))" class="form-control"></select>
+                <span asp-validation-for="TaskGroup" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WantedUser" class="control-label"></label>
+                <select asp-for="WantedUser" asp-items="@(new SelectList(ViewBag.userMessage,"Id","User"))" class="form-control"></select>
+                <span asp-validation-for="WantedUser" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Zapisz zmiany" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" id="backtolist">Wróć do listy</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

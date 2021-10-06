@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebApplication8.Models.UserTasks>
+@{
+    ViewData["Title"] = "Test";
+    Layout = "~/Pages/_LayoutNavigation.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/profile.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<nav class="navbar h-100">
+    <div class="h-50">
+    </div>
+</nav>
+<div class="container h-50 userProfileMain">
+    <section class="main">
+        <div class="userData flex-column"><text id="user">@ViewBag.User</text></div>
+        <div class="d-flex flex-column col-md-7">
+            <div class="userText d-flex flex-column">
+                <label for="userName">Imię: @ViewBag.Name </label>
+            </div>
+            <div class="userText d-flex flex-column">
+                <label for="userEmail">Email: @ViewBag.Email </label>
+            </div>
+            <div class="userText d-flex flex-column">
+                <label for="userGroups">Grupy: </label>
+            </div>
+        </div>
+        <a href="">Zmień dane</a>
+    </section>
+    <section class="row col-12 main">
+        <div class="userTasks d-flex justify-content-end">
+            <div class="d-flex flex-column userProfileMain">
+                <table class="table-responsive-lg">
+                    <thead>
+                        <tr>
+                            <th>Zadanie</th>
+                            <th>Opis</th>
+                            <th>Status</th>
+                            <th>Data utworzenia</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                                <td>@Html.DisplayFor(modelItem => item.CreatedAt)</td>
+                                <!-- <td><a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |</td>-->
+                                <td><button class="btn btn-danger taskIsDone" onclick="taskIsDone()">Zrobione!</button></td>
+                                <td>
+                                    @Html.ActionLink("Zrobione!", "UpdateStatus", "User", new { id = item.Id })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <script src="~/js/profile.js" asp-append-version="true"></script>
+</div>
+

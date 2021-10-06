@@ -1,0 +1,9 @@
+﻿.map {
+    height: 480px;
+}
+
+@media screen and (max-width: 500px) {
+    #mapid {
+        z-index: -1;
+    }
+}

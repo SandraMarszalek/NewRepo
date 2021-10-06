@@ -1,0 +1,21 @@
+﻿table {
+    color: white;
+}
+
+.accordion-body {
+    background-color: hsl(221, 100%, 15%);
+}
+
+.accordion-button.collapsed {
+    color: white;
+}
+
+#makeMeWhite {
+    color: white; 
+}
+
+@media screen and (max-width: 960px) {
+    .hideItOnMobile {
+        display: none;
+    }
+}

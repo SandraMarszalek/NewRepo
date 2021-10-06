@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Pages/_LayoutNavigation.cshtml";
+}
+
+<head>
+    <link rel="stylesheet" href="/css/leaflet.css" />
+    <link rel="stylesheet" href="/css/mymap.css" />
+    
+    
+
+</head>
+<body>
+    <div class="map leaflet-container leaflet-touch-drag leaflet-touch-zoom" id="mapid">
+
+    </div>
+    <script type="text/javascript"> var userTooltip = '@ViewData["user"]';</script>
+    <script src="~/js/leaflet.js"></script>
+    <script src="~/js/map.js" asp-append-version="true"></script>
+</body>
+
+
+    
